@@ -1,0 +1,110 @@
+/**
+ *
+ * Elevator Algorithms
+ * Stylesheet
+ *
+ * @author Andy Shora
+ *
+**/
+
+@import "_normalize";
+@import "_breakpoints";
+@import "_utils";
+@import "_layout";
+@import "_typography";
+@import "_inputs";
+@import "mixins/_flexbox";
+
+/* cheese color scheme, based off http://www.colorhexa.com/ffbd88 'Macaroni and Cheese'! */
+$red: rgb(255, 136, 143);
+$orange: rgb(255, 189, 136);
+$yellow: rgb(255, 249, 136);
+
+
+/*
+  Vendor Styles
+-----------------------------------------------------------------------*
+ */
+
+// @import "vendor/_prism";
+
+/*
+  Component Styles
+-----------------------------------------------------------------------*
+ */
+// @import "components/_button";
+
+html, body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: black;
+
+  // background-image: radial-gradient(circle at 50% 53%, rgb(29, 49, 73), #162538 56%, #162538 56%, #111c2b);
+
+  /* noise layer */
+  /* &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: url(/images/noise-50.png) 0 0 repeat;
+    pointer-events: none;
+  } */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  pointer-events: none;
+  @include prefix(transition, opacity 2s);
+  opacity: 1;
+  z-index: 3;
+
+  .app--loaded & {
+    opacity: 0;
+  }
+}
+
+.title {
+  color: white;
+  font-size: 48px;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  @include flexbox();
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#bulletSpeed {
+  position: absolute;
+  z-index: 2;
+  bottom: 10px;
+  left: 10px;
+  width: 100px;
+}
+
+#orbitSpeed {
+  position: absolute;
+  z-index: 2;
+  bottom: 30px;
+  left: 10px;
+  width: 100px;
+}
