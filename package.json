@@ -32,6 +32,7 @@
     "gaze": "^0.5.1",
     "highlight.js": "^8.8.0",
     "lodash.template": "^3.6.2",
+    "loglevel": "^1.4.1",
     "markdown-it": "^4.4.0",
     "mkdirp": "^0.5.1",
     "mocha": "^2.3.2",
