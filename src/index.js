@@ -8,11 +8,11 @@ Flora.System.setup(function() {
     c: 0
   });
 
-  let viz1 = new CeoViz();
+  let viz1 = new CeoViz(this, world);
 
-  let walkers = [];
+  // let walkers = [];
 
-  for (let i = 0; i < 5; i++) {
+  /*for (let i = 0; i < 5; i++) {
 
     let walker = this.add('Walker');
 
@@ -38,14 +38,8 @@ Flora.System.setup(function() {
       ]
     });
 
-  }
+  }*/
 
-  this.add('Stimulus', {
-    type: 'heat',
-    draggable: true,
-    width: 100,
-    height: 100
-  });
 
 
 
