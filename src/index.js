@@ -11,8 +11,8 @@ Flora.System.setup(function() {
 
   let rColorScale = chroma.scale(['rgb(0, 157, 249)', 'rgb(0, 117, 185)']);
 
-  const numCandidates = 10;
-  const recruitersPerCandidate = 10;
+  const numCandidates = 20;
+  const recruitersPerCandidate = 5;
 
   let cColors = chroma.scale(['rgb(255, 193, 7)', 'white']).mode('rgb').colors(numCandidates);
 
