@@ -1,4 +1,5 @@
-import { Viz as CeoViz } from './ceo-pay';
+// import { Viz as CeoViz } from './ceo-pay';
+import chroma from 'chroma-js';
 
 'use strict';
 
@@ -8,37 +9,38 @@ Flora.System.setup(function() {
     c: 0
   });
 
-  let viz1 = new CeoViz(this, world);
+  let rColorScale = chroma.scale(['rgb(0, 157, 249)', 'rgb(0, 117, 185)']);
 
-  // let walkers = [];
+  const numCandidates = 10;
+  const recruitersPerCandidate = 10;
 
-  /*for (let i = 0; i < 5; i++) {
+  let cColors = chroma.scale(['rgb(255, 193, 7)', 'white']).mode('rgb').colors(numCandidates);
 
-    let walker = this.add('Walker');
+  for (let i = 0; i < numCandidates; i++) {
 
-    walkers.push(walker);
-
-    this.add('Agent', {
-      seekTarget: walker,
-      motorSpeed: 2,
-      minSpeed: 1,
-      maxSpeed: 10,
-      width: 20,
-      height: 20,
-      borderWidth: 0,
-      location: new Flora.Vector(world.width * 0.49, 0),
-      sensors: [
-        this.add('Sensor', {
-          type: 'heat',
-          displayRange: true,
-          displayConnector: true,
-          behavior: 'COWARD',
-          borderWidth: 0
-        })
-      ]
+    let candidate = this.add('Walker', {
+      maxSpeed: 5 + i,
+      color: chroma(cColors[i]).rgb()
     });
 
-  }*/
+    // add a number of recruiters
+    for (let j = 0; j < recruitersPerCandidate; j++) {
+      this.add('Agent', {
+        seekTarget: candidate,
+        flocking: true,
+        color: rColorScale(Math.random().toFixed(1)).rgb(),
+        motorSpeed: 2,
+        minSpeed: 1,
+        maxSpeed: 10 + (Math.random() * 5),
+        maxSteeringForce: 10 + (Math.random() * 5),
+        width: 50,
+        height: 50,
+        borderWidth: 0,
+        location: new Flora.Vector(Math.random() * 1000, Math.random() * 500)
+      });
+    }
+  }
+
 
 
 
