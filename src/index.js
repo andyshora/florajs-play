@@ -19,7 +19,7 @@ Flora.System.setup(function() {
   for (let i = 0; i < numCandidates; i++) {
 
     let candidate = this.add('Walker', {
-      maxSpeed: 5 + i,
+      maxSpeed: 5 + ~~(i / 2),
       color: chroma(cColors[i]).rgb()
     });
 
@@ -40,9 +40,6 @@ Flora.System.setup(function() {
       });
     }
   }
-
-
-
 
 
 });
